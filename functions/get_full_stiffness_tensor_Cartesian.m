@@ -17,17 +17,23 @@ temp.l = robot.l;
 
 % x = forward_kinematics(robot);
 
-K0 = get_full_stiffness_matrix_Cartesian(robot, act_rods, act_nodes);
+K0 = get_full_stiffness_matrix_Cartesian(robot, 'act_rods',       act_rods, ...
+                                                'act_nodes',      act_nodes);
 
-H_tensor = zeros(24,3*length(act_rod),length(active_springs));
+H_tensor = zeros(24, 3*length(act_rods), length(active_springs));
+
 for i = 1:length(active_springs)
     robot.l(active_springs(i))=robot.l(active_springs(i)) + alpha;
     
-    K = get_full_stiffness_matrix_Cartesian(robot, act_rods, act_nodes);
+    K = get_full_stiffness_matrix_Cartesian(robot, 'act_rods',       act_rods, ...
+                                                   'act_nodes',      act_nodes);
     
-    robot.l(active_springs(i))=robot.l(active_springs(i)) - alpha;
+    robot.l(active_springs(i)) = robot.l(active_springs(i)) - alpha;
     
     H_tensor(:,:,i) = (K - K0)/alpha;
+    
+    disp(['Matrix K for i = ', num2str(active_springs(i)), ':'])
+    disp(K)
 end
 
 robot.l = temp.l;

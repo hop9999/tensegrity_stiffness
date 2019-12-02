@@ -15,7 +15,7 @@ function [x, fval, exitflag, output] = forward_kinematics(robot, varargin)
 
 Parser = inputParser;
 Parser.FunctionName = 'forward_kinematics';
-Parser.addOptional('fmincon_options', []);
+Parser.addOptional('fmincon_options', optimoptions('fmincon', 'Display', 'none'));
 Parser.parse(varargin{:});
 
 fmincon_options = Parser.Results.fmincon_options;

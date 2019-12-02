@@ -24,10 +24,11 @@ n_base = length(robot.base)/6;
 K = zeros(length(state), 3*length(act_rods));
 
 for i = 1:length(act_rods)
+    
         robot.end_eff.rod = act_rods(i);
         robot.end_eff.end = act_nodes(i);
         
-        robot.f = [alpha; 0; 0];
+        robot.f = alpha*[1; 0; 0];
         state_x = forward_kinematics(robot);
 %         p_x = end_effector_position_from_state(robot, state_x);
         
