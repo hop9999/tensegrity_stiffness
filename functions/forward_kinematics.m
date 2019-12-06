@@ -9,8 +9,6 @@
 %robot.end_eff.rod - number of end effector rod
 %robot.end_eff.end - number of end of end effector rod
 
-%%%%%%%%%%%%%%%%%%TODO error in f_ext in energy!!!!!!!!!!!!!!!!!!!!!!!!
-
 function [x, fval, exitflag, output] = forward_kinematics(robot, varargin)
 
 Parser = inputParser;

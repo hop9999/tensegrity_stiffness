@@ -13,11 +13,11 @@ robot.active_springs = [10,12,19,23];
 robot.end_eff.rod = 4;
 robot.end_eff.end = 1;
 
-% fix this horror
-robot.l(10) = robot.l(10) +0.0029 ;
-robot.l(12) = robot.l(12) -0.0004;
-robot.l(19) = robot.l(19) +0.0003;
-robot.l(23) = robot.l(23) +0.0019;
+% % fix this horror
+% robot.l(10) = robot.l(10) +0.0029 ;
+% robot.l(12) = robot.l(12) -0.0004;
+% robot.l(19) = robot.l(19) +0.0003;
+% robot.l(23) = robot.l(23) +0.0019;
 
 robot.base = [0,0,0,...
     0,0,1,...
