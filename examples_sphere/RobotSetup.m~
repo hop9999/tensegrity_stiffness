@@ -1,6 +1,6 @@
 function robot = RobotSetup()
 
-robot.k = ones(1,24)*100;
+robot.k = ones(1,24)*1;
 robot.d = ones(6,1);
 robot.l = ones(1,24)*0.2;
 robot.x0 = [0.3,-0.5,0.3,0.3,0.5,0.3,...

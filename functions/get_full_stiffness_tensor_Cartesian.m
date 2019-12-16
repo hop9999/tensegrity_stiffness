@@ -2,7 +2,7 @@ function H_tensor = get_full_stiffness_tensor_Cartesian(robot, varargin)
 
 Parser = inputParser;
 Parser.FunctionName = 'get_full_stiffness_tensor_Cartesian';
-Parser.addOptional('alpha', 0.001);
+Parser.addOptional('alpha', 0.01);
 Parser.addOptional('active_springs', [1 2 3]);
 Parser.addOptional('act_rods', [1 2 3]);
 Parser.addOptional('act_nodes', [1 2 3]);

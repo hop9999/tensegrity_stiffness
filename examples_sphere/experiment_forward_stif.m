@@ -3,8 +3,6 @@ clc; clear; close all
 robot = RobotSetup();
 
 [mean_v,min_v,max_v] = experiment_statistics_stiffness_linearization(robot,1)
-[mean_v,min_v,max_v] = experiment_statistics_stiffness_linearization(robot,10)
-[mean_v,min_v,max_v] = experiment_statistics_stiffness_linearization(robot,100)
 
 function error = get_relative_stiffness_linearization_error(robot, act_rod, act_node, alpha)
 fmincon_options = optimoptions(@fmincon,'MaxIterations', 5000, 'MaxFunctionEvaluations', 5000, 'Display', 'off');
@@ -26,7 +24,7 @@ end
 function [mean_v,min_v,max_v] = experiment_statistics_stiffness_linearization(robot,alpha)
     act_rod = [3,3,4,4];
     act_node = [1,2,1,2];
-    experiment_number = 20;
+    experiment_number = 1;
     error = zeros(experiment_number,1);
     for i = 1:experiment_number
         error(i) = get_relative_stiffness_linearization_error(robot, act_rod, act_node, alpha);
